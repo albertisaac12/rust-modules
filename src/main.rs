@@ -1,19 +1,21 @@
 mod inventory;
 mod orders;
+
+use crate::inventory::{FLOOR_SPACE as fp};
 fn main() {
   
   println!("The manager of our inventory is {} ", crate::inventory::MANAGER); 
   println!("The manager of our orders is {} ", crate::orders::MANAGER); 
 
 
-  println!("Our mangers are {} and {} , we have this much amount of floor space {} in sq feet", crate::inventory::MANAGER,crate::orders::MANAGER, crate::inventory::FLOOR_SPACE);
+  println!("Our mangers are {} and {} , we have this much amount of floor space {} in sq feet", crate::inventory::MANAGER,crate::orders::MANAGER, fp);
 
-  let fav_cat =  crate::inventory::ProductCategory::Hammer;
+  let fav_cat =  crate::inventory::products::ProductCategory::Hammer;
   println!("My fav cat of item is {fav_cat:?}");
 
-  let tall_ladder = crate::inventory::Item {
+  let tall_ladder = crate::inventory::products::Item {
     name: "ladder".to_string(),
-    category: crate::inventory::ProductCategory::Ladder,
+    category: crate::inventory::products::ProductCategory::Ladder,
     quantity: 100,
   };
 
@@ -35,4 +37,4 @@ fn main() {
 
 //file for module `orders` found at both "src/orders.rs" and "src/orders/mod.rs" this will be an error we can either have only one orders.rs or one orders/mod.rs
 
-// the struct felids are private by default too
+// the struct felids are private by default too, we mark the methods inside the impl pub if needed
