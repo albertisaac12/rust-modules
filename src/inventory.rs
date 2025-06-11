@@ -1,12 +1,14 @@
+pub mod products;
 
-    pub const FLOOR_SPACE: i32 = 10000;
-    pub const MANAGER: &str = "Ivan Inventory";
+pub use products::{Item,ProductCategory}; // will export the Item and ProductCategory out of the inventory module directly even if they belong to a different module and have been imported to use.
 
-    fn talk_to_manager() {
-        println!("Hey {MANAGER}, how is your coffee ?");
-    }
+pub const FLOOR_SPACE: i32 = 10000;
+pub const MANAGER: &str = "Ivan Inventory";
 
-    pub mod products;
+fn talk_to_manager() {
+    println!("Hey {MANAGER}, how is your coffee ?, What do you think of {:?}", ProductCategory::Ladder);
+}
+
     // pub mod products {
     //      #[derive(Debug)]
     //     pub enum ProductCategory {

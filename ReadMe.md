@@ -32,3 +32,9 @@ A package is a collection of one or more crates.
 
 
 The `pub` keyword makes sure that the element is accessible outside its namespace (scope).
+
+Using `super` for a nested module works for invoking functions not marked as `pub`. Reason is that the module invoking the function with `super` is a nested module and nested modules have direct access to the functions within parent modules with the use of super.
+
+`pub use` can be used to export items of a different modules
+
+The standard library is a collection of modules built into rust.

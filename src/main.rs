@@ -1,7 +1,15 @@
-mod inventory;
-mod orders;
+// mod inventory;
+// mod orders;
 
-use crate::inventory::{FLOOR_SPACE as fp};
+// use std::prelude::v1;
+use fake::{Fake,Faker};
+
+use warehouse::*;
+// use std::io;
+// use std::{fmt,io::{self,stdin,stdout},collections::*};
+
+// use crate::inventory::{products, Item, FLOOR_SPACE as fp};
+
 fn main() {
   
   println!("The manager of our inventory is {} ", crate::inventory::MANAGER); 
@@ -13,13 +21,18 @@ fn main() {
   let fav_cat =  crate::inventory::products::ProductCategory::Hammer;
   println!("My fav cat of item is {fav_cat:?}");
 
-  let tall_ladder = crate::inventory::products::Item {
-    name: "ladder".to_string(),
-    category: crate::inventory::products::ProductCategory::Ladder,
-    quantity: 100,
-  };
+  // let tall_ladder = crate::inventory::products::Item {
+  //   name: "ladder".to_string(),
+  //   category: crate::inventory::products::ProductCategory::Ladder,
+  //   quantity: 100,
+  // };
+
+  let ladder = Item::new("Blah".to_string(), fav_cat, 100);
 
 
+  let fake_item:Item = Faker.fake();
+
+  println!("{fake_item:?}")
 }
 
 // Packages and Crates
@@ -38,3 +51,11 @@ fn main() {
 //file for module `orders` found at both "src/orders.rs" and "src/orders/mod.rs" this will be an error we can either have only one orders.rs or one orders/mod.rs
 
 // the struct felids are private by default too, we mark the methods inside the impl pub if needed
+
+
+// use inventory::products::{self,ProductCategory};
+
+
+//Using `super` for a nested module works for invoking functions not marked as `pub`. Reason is that the module invoking the function with `super` is a nested module and nested modules have direct access to the functions within parent modules with the use of super.
+
+// * says give me every public name without me declaring them explectliy
