@@ -27,7 +27,7 @@ fn main() {
   //   quantity: 100,
   // };
 
-  let ladder = Item::new("Blah".to_string(), fav_cat, 100);
+  let ladder = Item::new("Blah".to_string(), fav_cat, 1000);
 
 
   let fake_item:Item = Faker.fake();
